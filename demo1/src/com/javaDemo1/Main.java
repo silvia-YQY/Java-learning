@@ -45,6 +45,7 @@ public class Main {
         int length = stdReader.read(buffer);
         System.out.println(buffer);
         System.out.println(length);
+        */
 
         //读取文件并写入到另外一个文件
         FileInputStream input = new FileInputStream("res/input.txt");
@@ -57,12 +58,13 @@ public class Main {
         PrintWriter printer = new PrintWriter(writer);
 
         //一行行读取文件
-
+        /*
         String context = "";
         for(String line = bufferedReader.readLine(); line != null;line = bufferedReader.readLine()){
             context = context + line;
             System.out.println(context);
         }
+       */
 
         String context2 = "";
         String line = null;
@@ -77,6 +79,6 @@ public class Main {
         printer.print(context2);
         printer.close();
         output.close();
-        */
+
     }
 }

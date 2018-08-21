@@ -12,19 +12,20 @@ public class FakeFile {
     }
     //读取文件内容
     public String readToString() {
-        FileInputStream input = null;
-        String context = "defaul";
+        String context = "";
         try {
-            input = new FileInputStream(this.fileName);
+            FileInputStream input  = new FileInputStream(this.fileName);
             InputStreamReader reader = new InputStreamReader(input,"UTF-8");
             BufferedReader bufferedReader = new BufferedReader(reader);
-            System.out.println("bufferedReader"+reader);
+            System.out.println("bufferedReader"+bufferedReader);
             try {
                 String line = null;
                 while ((line = bufferedReader.readLine()) != null) {
                     context += line;
-                    System.out.println("context"+context);
+                    System.out.println(context);
                 }
+                reader.close();
+                input.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -35,17 +36,20 @@ public class FakeFile {
             e.printStackTrace();
             System.out.println("文件内没有内容"+e);
         }
-
         return context;
 
     }
     //写入文件
-    public void writeString(String content) throws FileNotFoundException, UnsupportedEncodingException {
+    public void writeString(String content) throws IOException {
         FileOutputStream output = new FileOutputStream(this.fileName);
         OutputStreamWriter writer = new OutputStreamWriter(output, "UTF-8");
         PrintWriter printer = new PrintWriter(writer);
-
+        System.out.println("printer"+content);
         printer.print(content);
+        printer.close();
+        writer.close();
+        output.close();
+
     }
 
 
