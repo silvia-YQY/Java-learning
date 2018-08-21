@@ -35,15 +35,16 @@ public class FakeFile {
             e.printStackTrace();
             System.out.println("文件内没有内容"+e);
         }
-
         return context;
 
     }
     //写入文件
-    public void writeString(String contennt) throws FileNotFoundException, UnsupportedEncodingException {
+    public void writeString(String content) throws FileNotFoundException, UnsupportedEncodingException {
         FileOutputStream output = new FileOutputStream(this.fileName);
         OutputStreamWriter writer = new OutputStreamWriter(output, "UTF-8");
         PrintWriter printer = new PrintWriter(writer);
+
+        printer.print(content);
     }
 
 
