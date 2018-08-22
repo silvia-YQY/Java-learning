@@ -14,11 +14,6 @@ public class Main {
 
         FileHelper F = new FileHelper();
         F.copy(File1,File2);
-//        try {
-//            File.writeString("今天天气很好啊。");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            System.out.println("e"+e);
-//        }
+
     }
 }
