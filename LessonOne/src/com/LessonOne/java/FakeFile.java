@@ -5,7 +5,6 @@ import java.io.*;
 public class FakeFile {
     public final String fileName;
     private static int number = 0;
-
     //设置文件路径
 
     //构造方法一
