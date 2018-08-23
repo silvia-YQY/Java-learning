@@ -3,13 +3,25 @@ import java.io.*;
 
 
 public class FakeFile {
-    public static String fileName;
+    public final String fileName;
+    private static int number = 0;
 
     //设置文件路径
-    public void setFilePath(String fileName){
+
+    //构造方法一
+    public FakeFile(String fileName){
         this.fileName = fileName;
+        FakeFile.number += 1;
         System.out.println("设置路径成功！");
     }
+
+    //构造方法二 ，默认构造
+    public FakeFile(){
+        this.fileName = "1.txt";
+        FakeFile.number += 1;
+    }
+
+
     //读取文件内容
     public String readToString() {
         String context = "";
