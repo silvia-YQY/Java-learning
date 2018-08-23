@@ -4,12 +4,8 @@ import java.io.*;
 public class FileHelper {
 
     public static void copy(FakeFile file1,FakeFile file2 ){
-
-        String fileContext = file1.readToString();
-        file1.readToString();
         try {
-            file2.writeString(fileContext);
-            System.out.println("copy成功，内容为："+fileContext);
+            file2.writeString(file1.readToString());
         } catch (IOException e) {
             e.printStackTrace();
         }
