@@ -17,7 +17,7 @@ public class FakeFile {
 
     //构造方法二 ，默认构造
     public FakeFile(){
-        this.fileName = "1.txt";
+        this.fileName = "TextFile/text1.txt";
         FakeFile.number += 1;
     }
 

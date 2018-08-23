@@ -4,7 +4,7 @@ import java.io.UnsupportedEncodingException;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
-        FakeFile File1 = new FakeFile("TextFile/text1.txt");
+        FakeFile File1 = new FakeFile();
         //File1.setFilePath("TextFile/text1.txt");
 
         FakeFile File2 = new FakeFile("TextFile/text2.txt");
