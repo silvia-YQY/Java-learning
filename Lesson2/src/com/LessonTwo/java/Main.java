@@ -27,7 +27,8 @@ public class Main {
 
     //传参为只要是成功引用了Displayable接口的类均可
     //这里实现了多态
-    //
+    //多态，指没有输入限制（类型）的方法，只关注运行过程
+    //也称为鸭子类型
     private static void viewNews(Displayable item){
         item.display();
         System.out.println("播放完毕");
