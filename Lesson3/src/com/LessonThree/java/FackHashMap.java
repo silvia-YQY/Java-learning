@@ -1,5 +1,4 @@
 package com.LessonThree.java;
-
 import java.util.*;
 
 public class FackHashMap {

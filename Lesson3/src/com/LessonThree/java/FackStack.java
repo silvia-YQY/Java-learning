@@ -19,7 +19,6 @@ public class FackStack {
         System.out.println(stack.pop()); // 3
         System.out.println(stack.pop()); // 5
 
-
         // 检查是否为空
         System.out.println("stack.isEmpty ^^^^^^"+stack.isEmpty());
 
