@@ -1,6 +1,7 @@
 package com.SpiderDemo.java;
 import com.SpiderDemo.java.model.News;
 import com.SpiderDemo.java.model.NewsFactory;
+import com.SpiderDemo.java.model.UrlNewsReader;
 import com.SpiderDemo.java.model.Viewable;
 import com.SpiderDemo.java.view.ListViewer;
 
@@ -27,5 +28,7 @@ public class Main {
         ListViewer viewer = new ListViewer(viewableList);
         viewer.display();
         */
+
+        UrlNewsReader.read("https://readhub.cn/topic/7FZNR5RvV7n");
     }
 }

@@ -14,6 +14,7 @@ public class JsonNewsReader extends NewsReader {
     @Override
     public News readNews(){
         News news = null;
+        /*
         try {
             String jsonString = FileUtils.readFileToString(file,"UTF-8");
             JSONObject jsonObject = new JSONObject(jsonString);
@@ -25,7 +26,7 @@ public class JsonNewsReader extends NewsReader {
         } catch (JSONException e){
             System.out.println("Json解析出错！");
         }
-
+        */
         return news;
     }
 }

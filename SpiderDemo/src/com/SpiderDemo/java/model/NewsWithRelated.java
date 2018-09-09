@@ -11,8 +11,8 @@ public class NewsWithRelated extends News {
         relateds = new HashMap<String, String>();   // 初始化自己的属性
     }
 
-    public void addRelated(String date, String title){
-        this.relateds.put(date,title);
+    public void addRelated(String title, String url){
+        this.relateds.put(title,url);
     }
 
     public HashMap<String,String> getRelateds(){
