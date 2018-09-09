@@ -23,19 +23,14 @@ public class NewsFactory {
         File[] files =  newsDir.listFiles();
         if(files != null){
             for(File file : files){
-                try {
-                    BufferedReader reader = new BufferedReader(new FileReader(file));
-                    String title = reader.readLine(); // 读取第一行：title
-                    reader.readLine(); // 空行作为内容分割
-                    String content = reader.readLine(); // 读取内容（第三行开始）；
-                    News news = new News(title,content);
-
-                    //NewsWithRelated news = new NewsWithRelated(title,content);
-                    //news.addRelated("9.9","java爬虫");
-                    newsList.add(news);
-                } catch (java.io.IOException e) {
-                    System.out.println("新闻读取出错！");
+                NewsReader newsReader = null;
+                if(file.getName().endsWith(".txt")){
+                    newsReader = new TextNewsReader(file);
+                }else if(file.getName().endsWith(".json")){
+                    newsReader = new JsonNewsReader(file);
                 }
+                News news = newsReader.readNews();
+                newsList.add(news);
             }
         }
         NewsWithRelated newsWithRelated = new NewsWithRelated("java爬虫","YQY");

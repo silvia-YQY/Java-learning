@@ -1,7 +1,8 @@
 package com.SpiderDemo.java;
 import com.SpiderDemo.java.model.News;
 import com.SpiderDemo.java.model.NewsFactory;
-import com.SpiderDemo.java.view.NewsListViewer;
+import com.SpiderDemo.java.model.Viewable;
+import com.SpiderDemo.java.view.ListViewer;
 
 import java.util.ArrayList;
 
@@ -14,12 +15,17 @@ public class Main {
     // step 4： 开写。
     public static void main(String[] args) throws Exception {
         // 获取resources文件夹下，Reade_hub目录的路径。
+        /*
         String resource_path = Main.class.getClassLoader().getResource("read_hub").getPath();
 
         NewsFactory newsReader = new NewsFactory(resource_path);
         ArrayList<News> newsList = newsReader.fetch();
 
-        NewsListViewer viewer = new NewsListViewer(newsList);
+        ArrayList<Viewable> viewableList = null;
+        viewableList.addAll(newsList);
+
+        ListViewer viewer = new ListViewer(viewableList);
         viewer.display();
+        */
     }
 }

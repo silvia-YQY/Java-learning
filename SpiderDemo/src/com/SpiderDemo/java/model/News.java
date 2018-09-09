@@ -1,7 +1,7 @@
 package com.SpiderDemo.java.model;
 
 // 该类工作为收集到读出去来的文件，进行操作
-public class News {
+public class News implements Viewable {
     private String title;
     private String content;
 
@@ -20,7 +20,6 @@ public class News {
     }
 
     public void display() {
-        System.out.println("________________");
         System.out.println("Title:"+this.getTitle());
         System.out.println("Content:"+this.getContent());
     }
