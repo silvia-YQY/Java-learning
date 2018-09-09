@@ -2,6 +2,7 @@ package com.SpiderDemo.java.view;
 import com.SpiderDemo.java.model.News;
 import java.util.ArrayList;
 
+// 该类职责：显示读取出来的文件内容
 public class NewsListViewer {
     private ArrayList<News> newsList ;
 
@@ -11,9 +12,7 @@ public class NewsListViewer {
 
     public void display(){
         for(News news : newsList ){
-            System.out.println("________________");
-            System.out.println("Title:"+news.getTitle());
-            System.out.println("Content:"+news.getContent());
+            news.display();
         }
     }
 }

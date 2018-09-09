@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         // 获取resources文件夹下，Reade_hub目录的路径。
         String resource_path = Main.class.getClassLoader().getResource("read_hub").getPath();
-        
+
         NewsFactory newsReader = new NewsFactory(resource_path);
         ArrayList<News> newsList = newsReader.fetch();
 

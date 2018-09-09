@@ -30,12 +30,18 @@ public class NewsFactory {
                     String content = reader.readLine(); // 读取内容（第三行开始）；
                     News news = new News(title,content);
 
+                    //NewsWithRelated news = new NewsWithRelated(title,content);
+                    //news.addRelated("9.9","java爬虫");
                     newsList.add(news);
                 } catch (java.io.IOException e) {
                     System.out.println("新闻读取出错！");
                 }
             }
         }
+        NewsWithRelated newsWithRelated = new NewsWithRelated("java爬虫","YQY");
+        newsWithRelated.addRelated("9.9","java爬虫11");
+        newsWithRelated.addRelated("9.10","java爬虫22");
+        newsList.add(newsWithRelated);
         return newsList;
     }
 }
