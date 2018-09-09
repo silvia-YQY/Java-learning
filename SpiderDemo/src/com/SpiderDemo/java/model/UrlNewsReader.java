@@ -23,9 +23,6 @@ public class UrlNewsReader {
         for(Element element : relatedItems){
             String relatedTitle = element.select(".content-item___3KfMq").text();
             String relatedUrl = element.children().get(3).child(0).absUrl("href");
-            System.out.println("________________________________");
-            System.out.println(relatedTitle);
-            System.out.println(relatedUrl);
             news.addRelated(relatedTitle,relatedUrl);
         }
 
