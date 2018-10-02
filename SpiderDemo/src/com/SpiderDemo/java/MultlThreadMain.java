@@ -1,35 +1,16 @@
 package com.SpiderDemo.java;
 import com.SpiderDemo.java.model.*;
-import com.SpiderDemo.java.view.ListViewer;
-
 import java.util.*;
 
-public class Main {
+public class MultlThreadMain {
     static final int maximumURL = 100;
-    // 本地存储的内容如何在终端里面显示。
-
-    // 写程序 step1 ：：抽象出——对象
-    // step 2： 设计对象应有的属性、状态和行为。
-    // step 3： 思考对象间的交互。
-    // step 4： 开写。
 
     public static void main(String[] args) throws Exception {
-        // 获取resources文件夹下，Reade_hub目录的路径。
-        /*
-        String resource_path = Main.class.getClassLoader().getResource("read_hub").getPath();
-
-        NewsFactory newsReader = new NewsFactory(resource_path);
-        ArrayList<News> newsList = newsReader.fetch();
-
-        ArrayList<Viewable> viewableList = null;
-        viewableList.addAll(newsList);
-
-        ListViewer viewer = new ListViewer(viewableList);
-        viewer.display();
-        */
+        long startTime = System.currentTimeMillis();
 
         // 广度优先搜索[使用队列]  ------  遍历的一种
-        long startTime = System.currentTimeMillis();
+        SearchSate searchSate = new SearchSate(100);  // 被共享
+
         Queue<NewsWithRelated> newsQueue = new LinkedList<NewsWithRelated>();  // 共享
 
         String startUrl = "https://readhub.cn/topic/7FZNR5RvV7n";
@@ -51,7 +32,7 @@ public class Main {
                 NewsWithRelated next = UrlNewsReader.read(url);
                 // 可以并行,同时读取网站
                 //if(!visited.contains(url)){
-                    newsQueue.add(next);
+                newsQueue.add(next);
                 //    visited.add(url);
                 //}
 
@@ -63,4 +44,5 @@ public class Main {
         System.out.println("程序运行时间："+(endTime-startTime)+"ms");
 
     }
+
 }

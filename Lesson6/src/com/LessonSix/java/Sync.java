@@ -1,7 +1,7 @@
 package com.LessonSix.java;
 class Synch {
     public static void main(String args[]) {
-        Callme target = new Callme();
+        Callme target = new Callme();   // 这个是被三个共享的资源。
         Caller ob1 = new Caller(target, "Hello");
         Caller ob2 = new Caller(target, "Synchronized");
         Caller ob3 = new Caller(target, "World");

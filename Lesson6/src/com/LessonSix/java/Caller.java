@@ -1,6 +1,6 @@
 package com.LessonSix.java;
 
-class Caller implements Runnable {
+class Caller implements Runnable {  // 实现Runnable接口，承继线程类
     String msg;
     Callme target;
     Thread t;
@@ -13,6 +13,7 @@ class Caller implements Runnable {
     }
 
     public void run() {
+        // 每个线程都会”同时“调用此方法。
         target.call(msg);
     }
 }
