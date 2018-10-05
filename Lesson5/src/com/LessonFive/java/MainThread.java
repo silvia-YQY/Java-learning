@@ -12,7 +12,7 @@ public class MainThread {
         System.out.println("id:" + t.getId()); // 自带toString 方法。
         System.out.println("After name change: " + t);
         // 线程运行
-        try {
+        try { 
             for (int n = 5; n > 0; n--) {
                 System.out.println(n);
                 Thread.sleep(5000);  // 暂停执行该线程一段时间。此为暂停执行1s，再继续执行。
