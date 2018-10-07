@@ -4,9 +4,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.Null;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class UserController {
@@ -34,8 +36,13 @@ public class UserController {
      * @return
      */
     @GetMapping("/users/{name}")
-    User getUser(@PathVariable String name){
-        return users.get(name);
+    ResponseEntity<User> getUser(@PathVariable String name){
+        if(users.containsKey(name)){
+            return new ResponseEntity<>(users.get(name),HttpStatus.OK);
+        }else {
+            return  new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
     }
 
     /**
@@ -45,10 +52,11 @@ public class UserController {
      * @return   // 返回创建成功的User对象，创建成功返回状态码 201
      */
     @PostMapping("/users")
-    User newUser(@RequestBody User user){
+    ResponseEntity<User> newUser(@RequestBody User user){
         users.put(user.getName(),user);
-        return users.get(user.getName());
-        // return new ResponseEntity<>(users.get(user.getName()),HttpStatus.CREATED);
+        // return users.get(user.getName());
+        // 创建成功后返回User对象，以及自定义状态码为201
+        return new ResponseEntity<>(users.get(user.getName()),HttpStatus.CREATED);
     }
 
     /**
@@ -59,10 +67,15 @@ public class UserController {
      * @return  修改之后的User对象
      */
     @PutMapping("/users/{name}")
-    User updateUser(@PathVariable String name, @RequestBody User updateUser){
-        User user = users.get(name);
-        user.setContent(updateUser.getContent());
-        return user;
+    ResponseEntity<User> updateUser(@PathVariable String name, @RequestBody User updateUser){
+        if(users.containsKey(name)){
+            User user = users.get(name);
+            user.setContent(updateUser.getContent());
+            return new ResponseEntity<>(user,HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
     }
 
     /**
@@ -71,7 +84,13 @@ public class UserController {
      * @param name
      */
     @DeleteMapping("/users/{name}")
-    void deleteUser(@PathVariable String name){
-        users.remove(name);
+    ResponseEntity<User> deleteUser(@PathVariable String name){
+        if(users.containsKey(name)){
+            users.remove(name);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
     }
 }
