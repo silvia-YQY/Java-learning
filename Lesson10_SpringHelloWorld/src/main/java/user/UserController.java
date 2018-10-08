@@ -10,6 +10,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 资源（路由）的控制，资源接口的集合。
+ * Controller放置接收到路由（URL）请求后的操作
+ */
+
 @RestController
 public class UserController {
 
@@ -24,7 +29,7 @@ public class UserController {
      * 查询用户列表
      * @return  返回所有用户列表
      */
-    @GetMapping("/users")
+    @GetMapping("/users")  // 映射该URL到下面的方法
     List<User> listUser(){
         return new ArrayList<>(users.values());
     }
